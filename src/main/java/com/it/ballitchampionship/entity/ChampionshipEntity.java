@@ -2,6 +2,7 @@ package com.it.ballitchampionship.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,20 +19,7 @@ public class ChampionshipEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
 
-    @ManyToMany
-    @JoinTable(
-            name = "championships_teams",
-            joinColumns = @JoinColumn(name = "championship_id"),
-            inverseJoinColumns = @JoinColumn(name = "team_id")
-    )
-    List<TeamEntity> teams;
+    @OneToMany(mappedBy = "championship")
+    private List<TeamEntity> teams;
 
-
-    @ManyToMany
-    @JoinTable(
-            name = "championships_phases",
-            joinColumns = @JoinColumn(name = "championship_id"),
-            inverseJoinColumns = @JoinColumn(name = "phase_id")
-    )
-    List<PhaseEntity> phases;
 }

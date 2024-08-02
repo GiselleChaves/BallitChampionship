@@ -26,9 +26,10 @@ public class MatchEntity {
     @Column(name = "is_active", nullable = false)
     Boolean isActive;
 
-    @ManyToMany
-    private List<PhaseEntity> phases = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "phase_id")
+    private PhaseEntity phases;
 
-    @ManyToMany
-    private List<TeamEntity> teams = new ArrayList<>();
+    @ManyToMany(mappedBy = "matches")
+    private List<TeamEntity> teams;
 }
