@@ -1,10 +1,13 @@
 package com.it.ballitchampionship.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "TB_CHAMPIONSHIP")
 public class ChampionshipEntity {
@@ -19,6 +22,7 @@ public class ChampionshipEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
 
+    @Column(name = "teams")
     @OneToMany(mappedBy = "championship")
     private List<TeamEntity> teams;
 

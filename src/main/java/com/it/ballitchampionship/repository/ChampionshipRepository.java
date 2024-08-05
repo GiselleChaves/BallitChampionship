@@ -1,12 +1,11 @@
 package com.it.ballitchampionship.repository;
 
+import com.it.ballitchampionship.entity.ChampionshipEntity;
 import com.it.ballitchampionship.entity.TeamEntity;
-import com.it.ballitchampionship.entity.dtos.TeamDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
 @Repository
-public interface TeamRepository extends JpaRepository<TeamEntity, Long> {
-    boolean findByName(String name);
+public interface ChampionshipRepository extends JpaRepository<ChampionshipEntity, Long> {
+
 }

@@ -6,13 +6,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Builder
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TeamDto {
-    private String name;
-    private String warCry;
-    private String foundationYear;
-    private Long championshipId;
+public class ChampionshipDto {
+
+    private Long id;
+    private List<TeamEntity> teams;
 }

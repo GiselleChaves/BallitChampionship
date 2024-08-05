@@ -3,21 +3,23 @@ package com.it.ballitchampionship.entity;
 import com.it.ballitchampionship.entity.dtos.TeamDto;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @Table(name = "TB_TEAM")
 @Entity
+@NoArgsConstructor
 public class TeamEntity {
 
     public TeamEntity(TeamDto teamDto){
         this.name = teamDto.getName();
         this.warCry = teamDto.getWarCry();
         this.foundationYear = teamDto.getFoundationYear();
+        this.pointCounter = 50;
     }
 
     /*
@@ -64,11 +66,11 @@ public class TeamEntity {
     private int pointCounter;
 
     @Column(name = "championship")
-    private int championship;
+    private Long championshipId;
 
     @ManyToOne
     @JoinTable(name = "championship_id")
-    private ChampionshipEntity championshipEntity;
+    private ChampionshipEntity championship;
 
     @ManyToMany
     @JoinTable(
